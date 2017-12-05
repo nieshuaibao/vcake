@@ -1,0 +1,38 @@
+﻿$(function () {
+    $('#btnGetVcode').bind('click', sendVcode);
+
+    $('#btnSubmit').click(function () {
+        if (!Validator.validate(0)) {
+            return false;
+        }
+        return true;
+    });
+});
+//发送验证码
+function sendVcode() {
+    var mobile = $.trim($('#tbPst').val());
+    if (mobile == '') {
+        alert('请填写您的手机号码');
+        $('#tbPst').focus();
+        return false;
+    }
+    $.post('/api/comm.ashx?cmd=getvcode', { 'mobile': mobile }, function (data) {
+        if (data.result) {
+            $('#btnGetVcode').unbind('click').addClass('vcode-disabled-button');
+            vcodeTick(60);
+            alert('注册验证码已发送至您的手机（30分钟内有效）');
+        } else {
+            alert(data.msg);
+        }
+    }, 'json');
+}
+//再次发送等待处理
+function vcodeTick(count) {
+    if (count <= 0) {
+        $('#btnGetVcode').removeClass('vcode-disabled-button').bind('click', sendVcode).val('免费获取短信验证码');
+        return;
+    }
+    $('#btnGetVcode').val(count + ' 秒后再次发送');
+    count--;
+    setTimeout('vcodeTick(' + count + ')', 1000);
+}

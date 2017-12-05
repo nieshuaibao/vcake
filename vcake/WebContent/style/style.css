@@ -1,0 +1,482 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, th, td, font {
+    padding: 0;
+    margin: auto;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+body {
+    font-size: 12px;
+    margin: auto;
+    padding: 0px;
+    background: #fafbf9;
+    margin: auto;
+    _margin: auto;
+    padding: 0px;
+    color: #5d8245;
+    font-family: "微软雅黑";
+}
+.red {
+    color:red;
+}
+.grey {
+    color:grey;
+}
+.clear {
+    clear: both;
+}
+
+img {
+    display: inline;
+    border: none;
+    text-align: center;
+}
+
+.blank {
+    HEIGHT: 20px;
+    CLEAR: both;
+    OVERFLOW: hidden;
+}
+
+.zhanghao {
+    color: #5d8245;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.zczhanghao {
+    color: #689150;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+}
+
+.xieyi {
+    color: #689150;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+}
+
+.zhfl {
+    font-size: 14px;
+    line-height: 24px;
+    color: #a2be8f;
+    text-decoration: none;
+    height: 24px;
+    border: 1px solid #bdcab5;
+    width: 194px;
+    font-family: "微软雅黑";
+    margin: 10px 5px;
+}
+
+.zcfl {
+    font-size: 14px;
+    line-height: 24px;
+    color: #a2be8f;
+    text-decoration: none;
+    height: 24px;
+    border: 1px solid #bdcab5;
+    width: 252px;
+    font-family: "微软雅黑";
+    margin: 10px 5px;
+}
+
+.zcfl2 {
+    font-size: 14px;
+    line-height: 24px;
+    color: #a2be8f;
+    text-decoration: none;
+    height: 24px;
+    border: 1px solid #bdcab5;
+    width: 90px;
+    font-family: "微软雅黑";
+    margin: 10px 5px;
+    margin-right: 15px;
+}
+
+.wjpass a {
+    color: #438a48;
+    font-size: 13px;
+    font-family: "微软雅黑";
+    padding-left: 138px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.zh_zc {
+    color: #ff8a00;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.zchy {
+    color: #57a45d;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    line-height: 20px;
+    text-decoration: none;
+}
+
+
+.nr_left {
+    float: left;
+    width: 177px;
+    margin: auto;
+    overflow: hidden;
+}
+
+ul.umenu {
+    float: left;
+    width: 177px;
+}
+
+    ul.umenu li {
+        float: left;
+        width: 177px;
+        height: 72px;
+        line-height: 72px;
+        color: #528249;
+        font-size: 14px;
+        margin-bottom: 5px;
+        text-align: center;
+        background-color: #d5eab2;
+        font-family: "微软雅黑";
+    }
+
+        ul.umenu li a {
+            font-size: 14px;
+            color: #528249;
+            text-decoration: none;
+            display: block;
+        }
+
+            ul.umenu li a:hover, ul.umenu li.active a {
+                color: #fff;
+                background-color: #02720c;
+            }
+
+.nr_right {
+    float: right;
+    width: 801px;
+    margin: auto;
+    border: 1px solid #02720c;
+    background-color: #FFF;
+    padding-bottom: 50px;
+}
+
+.butok333{
+	font-size: 12px;
+	line-height: 25px;
+	color: #48664E;
+	text-decoration: none;
+	height: 30px;
+	width: 75px;
+	}
+
+.myzl {
+    color: #067710;
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+
+    .myzl span {
+        color: #a2c38b;
+        font-size: 12px;
+        font-family: "微软雅黑";
+        padding-left: 10px;
+    }
+
+.shangpin {
+    color: #89a88b;
+    font-size: 12px;
+    font-family: "微软雅黑";
+}
+
+    .shangpin span {
+        color: #f69100;
+        font-size: 14px;
+        font-family: "微软雅黑";
+        padding: 0px 3px;
+    }
+
+a.jiesuan {
+    color: #f69100;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    text-decoration: none;
+}
+
+    a.jiesuan:hover {
+        color: #F00;
+        font-size: 12px;
+        font-family: "微软雅黑";
+        text-decoration: underline;
+    }
+
+a.jxgw {
+    color: #318a37;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    text-decoration: none;
+}
+
+    a.jxgw:hover {
+        color: #090;
+        font-size: 12px;
+        font-family: "微软雅黑";
+        text-decoration: underline;
+    }
+
+.zh {
+    color: #719874;
+    font-size: 14px;
+}
+
+.footeradmin {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    border-top: #428408 6px solid;
+    font-size: 13px;
+    color: #a4ad73;
+    line-height: 50px;
+    text-align: center;
+    font-family: "微软雅黑";
+}
+
+
+
+
+
+
+.bg_k {
+    background-image: url(images/bg.jpg);
+    background-repeat: no-repeat;
+    height: 413px;
+    width: 978px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.dengluwenzi {
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: #02720c;
+    text-decoration: none;
+    height: 50px;
+    width: 930px;
+    display: block;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+.denglu_left {
+    float: left;
+    height: auto;
+    width: 400px;
+    display: inline;
+    margin-left: 90px;
+}
+
+.denglu_right {
+    float: right;
+    height: auto;
+    width: 400px;
+    display: inline;
+    padding-top: 30px;
+}
+
+.bg_k2 {
+    background-image: url(images/bg2.jpg);
+    background-repeat: no-repeat;
+    height: 458px;
+    width: 961px;
+    margin: auto;
+    margin-bottom: 60px;
+    padding-top: 60px;
+}
+
+.zhucewenzi {
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: #02720c;
+    text-decoration: none;
+    height: 25px;
+    width: 930px;
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+}
+
+
+.zhuce_left {
+    float: left;
+    height: auto;
+    width: 400px;
+    display: inline;
+    margin-left: 110px;
+}
+
+.zhuce_right {
+    float: right;
+    height: auto;
+    width: 320px;
+    display: inline;
+    padding-top: 50px;
+}
+
+
+.hy_k001 {
+    height: 30px;
+    width: 980px;
+    margin: auto;
+    margin-top: 50px;
+    clear: both;
+}
+
+
+
+.hy_k001_left {
+    color: #02720c;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    float: left;
+    height: 30px;
+    width: 200px;
+    display: inline;
+    display: block;
+    line-height: 30px;
+}
+
+    .hy_k001_left span {
+        color: #02720c;
+        font-size: 16px;
+        font-family: "微软雅黑";
+        padding-left: 6px;
+        line-height: 30px;
+    }
+
+
+.myname_l {
+    color: #bfccbf;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    float: right;
+    height: 30px;
+    width: 300px;
+    display: inline;
+    line-height: 30px;
+    text-align: right;
+}
+
+.hy_k002 {
+    height: 2px;
+    width: 980px;
+    margin: auto;
+    background-color: #02720c;
+    margin-bottom: 25px;
+}
+
+.hy_k003 {
+    height: auto;
+    width: 980px;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.biaogewenzi {
+    font-size: 12px;
+    color: #719874;
+    text-decoration: none;
+    font-family: "微软雅黑";
+    line-height: 25px;
+}
+
+.biaogewenzi2 {
+    font-size: 12px;
+    color: #719874;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+.wenzi_rend {
+    font-size: 14px;
+    color: #F00;
+    text-decoration: none;
+    line-height: 25px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wenzi_rend2 {
+    font-size: 12px;
+    color: #F60;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+a.lanse {
+    font-size: 12px;
+    line-height: 25px;
+    color: #C90;
+    text-decoration: none;
+}
+
+    a.lanse:hover {
+        font-size: 12px;
+        line-height: 25px;
+        color: #399;
+        text-decoration: underline;
+    }
+
+
+/*获取短信验证码按钮*/
+.vcode-button {
+    width: 142px;
+    height: 24px;
+    border: 0px;
+    padding: 0px;
+    margin: auto;
+    text-align: center;
+    font-size: 12px;
+    line-height: 24px;
+    color: #528249;
+    background: url(images/vcode.gif) no-repeat left center;
+    cursor: pointer;
+}
+
+.vcode-disabled-button {
+    color: #999999;
+    cursor: wait;
+}
+
+/*订单详细页产品列表表格*/
+.order-goods-list {
+    border-collapse:collapse;
+    width:100%;
+}
+    .order-goods-list thead tr{
+        background-color:#e9f3e0;
+        text-align:center;
+        line-height:25px;
+    }
+    .order-goods-list tbody tr td{
+        border-bottom:1px dotted #e9f3e0;
+        text-align:center;
+        padding:5px;
+    }
+.price, .subtotal {
+    font-family:Verdana;
+    color:#f69100;
+}
+.tlprice {
+    font-family:Verdana;
+    color:#f69100;
+    font-size:18px;
+    font-weight:bold;
+}
