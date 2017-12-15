@@ -1,0 +1,176 @@
+﻿$(function () {
+    $('.cake-text').placeholder();
+
+    $('.action-delete').click(function () {
+        if (!confirm('确定要从购物车移除选择的商品吗？')) {
+            return false
+        }
+        saveCart();
+        var itemId = $(this).attr('rev');
+        $.post("/api/cart.ashx?cmd=delete-cart-item", {
+            'itemId': itemId
+        }, function (data) {
+            if (!data.tag) {
+                alert(data.msg)
+            }
+            location.reload(false)
+        }, 'json');
+        return false
+    });
+    $('.action-buy-cakeoptional').click(function () {
+        saveCart();
+        var gid = $(this).attr('rev');
+        $.post("/api/cart.ashx?cmd=add-cakeoptional-to-cart", {
+            'gid': gid,
+            'cnt': 1
+        }, function (data) {
+            if (!data.tag) {
+                alert(data.msg)
+            }
+            location.reload(false)
+        }, 'json');
+        return false
+    });
+    $('.cart-item-count .l a').click(function () {
+        var tr = $(this).parent().parent().parent().parent();
+        var price = (tr.find('.price:first').text());
+        var num = parseFloat($(this).parent().parent().find('input:first').val());
+        if (isNaN(num)) {
+            num = 1
+        } else {
+            num--;
+            if (num < 1) num = 1
+        }
+        $(this).parent().parent().find('input:first').val(num);
+        tr.find('.subtotal').text(num * price);
+        calcTotal()
+    });
+    $('.cart-item-count .r a').click(function () {
+        var tr = $(this).parent().parent().parent().parent();
+        var price = (tr.find('.price:first').text());
+        var num = parseFloat($(this).parent().parent().find('input:first').val());
+        if (isNaN(num)) {
+            num = 1
+        } else {
+            num++
+        }
+        $(this).parent().parent().find('input:first').val(num);
+        tr.find('.subtotal').text(num * price);
+        calcTotal();
+    });
+    $('.cart-item-count .c input').change(function () {
+        var tr = $(this).parent().parent().parent().parent();
+        var price = (tr.find('.price:first').text());
+        var num = parseFloat($(this).val());
+        if (isNaN(num)) num = 1;
+        if (num < 1) num = 1;
+        $(this).parent().parent().find('input:first').val(num);
+        tr.find('.subtotal').text(num * price);
+        calcTotal()
+    });
+    $('#linkNext').click(function () {
+        var valid = true;
+        $('.cart-cake-row').each(function () {
+            var itemId = $(this).attr('rev');
+            var cakeText = $.trim($(':radio[name=caketext' + itemId + ']:checked').val());
+            var cakeTextCtr = $('#cakeCustomText' + itemId);
+            if (cakeText == '') {
+                cakeText = $.trim(cakeTextCtr.val());
+            }
+            if (cakeText == '') {
+                alert('蛋糕自定义生日牌文字未填写');
+                cakeTextCtr.focus();
+                valid = false;
+                return false;
+            }
+            if (cakeText.lenB() > 16) {
+                alert('自定义生日牌文字不能超过8个汉字');
+                cakeTextCtr.focus();
+                valid = false;
+                return false
+            }
+        });
+        if (valid == false) {
+            return false
+        }
+        saveCart();
+        return true
+    });
+
+    $('.cake-text-wrapper').each(function () {
+        if ($(this).find(':radio:checked').length < 1) {
+            $(this).find(':radio:last').attr('checked', 'checked');
+        }
+    });
+
+    $('#cbMilk').click(function () {
+        calcTotal();
+    });
+
+    $('.cake-text').focus(function () {
+        $(this).parent().find(':radio').last().click();
+    });
+
+    calcTotal()
+});
+
+function calcTotal() {
+    var total = 0;
+    $('.subtotal').each(function () {
+        total += parseFloat($(this).text())
+    });
+    if ($('#cbMilk').is(':checked')) {
+        total += parseFloat($('#cbMilk').val());
+    }
+    $('#cartTotal').html(total.toFixed(2))
+}
+function saveCart() {
+    var postDataList = new Array();
+    $('tr.cart-cake-row').each(function () {
+        var itemId = $(this).attr('rev');
+        var data = {};
+        data['itemId'] = itemId;
+        var cakeText = $.trim($(':radio[name=caketext' + itemId + ']:checked').val());
+        if (cakeText == '') {
+            cakeText = $.trim($('#cakeCustomText' + itemId).val());
+        }
+        data['cakeText'] = cakeText;
+        if ($('#cakelunar' + itemId)) {
+            data['lunarSign'] = $.trim($('#cakelunar' + itemId).val())
+        } else {
+            data['lunarSign'] = ''
+        }
+        data['parts'] = $(':radio[name=gifts' + itemId + ']:checked').val();
+        var num = parseInt($.trim($('#num' + itemId).val()));
+        if (isNaN(num)) num = 1;
+        if (num < 1) num = 1;
+        data["num"] = num;
+        postDataList.push(data)
+    });
+    $('tr.cart-row').each(function () {
+        var itemId = $(this).attr('rev');
+        var data = {};
+        data['itemId'] = itemId;
+        var num = parseInt($.trim($('#num' + itemId).val()));
+        if (isNaN(num)) num = 1;
+        if (num < 1) num = 1;
+        data["num"] = num;
+        postDataList.push(data)
+    });
+    postCartData(postDataList)
+}
+function postCartData(data) {
+    if (data.length < 1) return;
+    var postData = data.shift();
+    $.ajax({
+        async: false,
+        data: postData,
+        dataType: 'json',
+        type: 'POST',
+        url: '/api/cart.ashx?cmd=update-cart-item',
+        success: function () {
+            postCartData(data)
+        },
+        error: function () { }
+    });
+}

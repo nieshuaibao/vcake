@@ -1,91 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-       <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%  
 	String path = request.getContextPath();  
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
-%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+%> 
+
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=1010, initial-scale=0.75" /><title>
 	会员注册_Vcake官网，当日现做_免费送货！
-</title><link href="../css.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../res/jq/jquery.js"></script>
-    <script type="text/javascript" src="../res/js/core.js"></script>
-    <script type="text/javascript" src="../js/global.js"></script>
-    <script type="text/javascript" src="js/regist.js"></script>
+</title><link href="<%=path %>/style/css.css" rel="stylesheet" type="text/css" /><link href="<%=path %>/style/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=path %>/style/jquery.js"></script>
+    <script type="text/javascript" src="<%=path %>/style/core.js"></script>
+    <script type="text/javascript" src="<%=path %>/style/global.js"></script>
+    <script type="text/javascript" src="<%=path %>/style/regist.js"></script>
 </head>
 <body>
     
 <div class="center">
 
     <div class="ccc2">
-        <div class="ccc2_left"><a href="/"><img src="/images/logo.png" width="150" height="62" border="0" /></a></div>
-        <div class="ccc2_ad">
-            <a href="javascript:void(0);" class="ad">西安</a>
-            <div class="ad2">
-                <div class="ad2_qh">切换城市：</div>
-                <dl class="city-list">
-                    <dd class="current">西安</dd><dd><a href="javascript:void(0);" rev="440300">深圳分站</a></dd>
-                </dl>
-            </div>
-        </div>
+        <div class="ccc2_left"><a href="<%=path %>/index.jsp"><img src="<%=path %>/style/logo.png" width="150" height="62" border="0" /></a></div>
         <div class="ccc2_right">
             <dl class="menu">
                 <dd rev="goods">
-                    <a href="/cake.aspx" class="lanmu">产品</a>
-                    <ul>
-                        <li><a href="/cake.aspx">蛋糕</a></li>
-                        <!--li><a href="/chocolate.aspx">巧克力</a></li-->
-                        <!--li><a href="/mooncake.aspx">礼饼</a></li-->
-                    </ul>
+                    <a href="<%=path %>/product/allProduct" class="lanmu">产品</a>
+               
                 </dd>
                 <dd rev="recommend">
-                    <a href="/recommend.aspx" class="lanmu">推荐</a>
-                    <ul>
-                        
-                                <li><a href="/recommend.aspx?classid=10">新品上市</a></li>
-                            
-                                <li><a href="/recommend.aspx?classid=30">加急推荐</a></li>
-                            
-                                <li><a href="/recommend.aspx?classid=20">节日推荐</a></li>
-                            
-                                <li><a href="/recommend.aspx?classid=40">星座探秘</a></li>
-                            
-                    </ul>
+                    <a href="<%=path %>/product/allProduct" class="lanmu">推荐</a>
                 </dd>
                 <dd rev="shop">
-                    <a href="/shop.aspx" class="lanmu">体验</a>
-                    <ul>
-                        
-                                <li><a href="/shop.aspx?id=1005">中央工厂</a></li>
-                            
-                    </ul>
+                    <a href="<%=path %>/product/allProduct" class="lanmu">体验</a>
                 </dd>
                 <dd rev="service">
-                    <a href="/member.aspx" class="lanmu">服务</a>
-                    <ul>
-                        <li><a href="/member.aspx">会员服务</a></li>
-                        <li><a href="/howbuy.aspx">订购帮助</a></li>
-                        <li><a href="/custom.aspx">包装展示</a></li>
-                        <li><a href="/delivery.aspx">配送服务</a></li>
-                        <li><a href="/contact.aspx">联系我们</a></li>
-                    </ul>
+                    <a href="<%=path %>/product/allProduct" class="lanmu">服务</a>
                 </dd>
                 <dd rev="about">
-                    <a href="/about.aspx" class="lanmu">品牌</a>
-                    <ul>
-                        <li><a href="/about.aspx">关于我们</a></li>
-                        <li><a href="/news.aspx">活动公告</a></li>
-                        <li><a href="/job.aspx">感谢有您</a></li>
-                    </ul>
+                    <a href="<%=path %>/product/allProduct" class="lanmu">品牌</a>
                 </dd>
             </dl>
         </div>
         <div class="ccc2_rk">
-            
-                <a href="/user/login.aspx" class="ccc2_dlzc">登录</a>
-                <a href="/user/regist.aspx" class="ccc2_dlzc" style="margin-right:3px;">注册</a>
+            <a href="<%=path %>/cart/productCart?userId=${user.id}" class="ccc2_dlzc">购物车</a>
+                <a href="<%=path %>/login.jsp" class="ccc2_dlzc">登录</a>
+                <a href="<%=path %>/regist.jsp" class="ccc2_dlzc" style="margin-right:3px;">注册</a>
             
             
             <span class="cart-icon"></span>
@@ -95,54 +56,145 @@
     
     
 </div>
-<script type="text/javascript">
-    $(function () {
-        $('.menu dd[rev=]').addClass('active');
-    });
-</script>
-    <form name="form1" method="post" action="regist.aspx" id="form1">
-<div>
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTM0NDc0MTU0OQ9kFgQCAw9kFgZmDxYCHgtfIUl0ZW1Db3VudAIEFghmD2QWAmYPFQICMTAM5paw5ZOB5LiK5biCZAIBD2QWAmYPFQICMzAM5Yqg5oCl5o6o6I2QZAICD2QWAmYPFQICMjAM6IqC5pel5o6o6I2QZAIDD2QWAmYPFQICNDAM5pif5bqn5o6i56eYZAIBDxYCHwACARYCZg9kFgJmDxUCBDEwMDUM5Lit5aSu5bel5Y6CZAIDDxYCHgdWaXNpYmxlaGQCBw9kFgICAQ8WAh4EVGV4dAUMNDAwLTA4Ni0yMjc3ZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUJYnRuU3VibWl0jD5PFinGvWh3GO6hh1HqOXDwIQ4=" />
-</div>
+   <!-- <script type="text/javascript">
+        //验证用户名是否存在
+	    function checkUser() {
+	        var name = $('#name').val();
+	        var s = 0;
+	        $.ajax({
+	            type : "post",
+	            url : "<%=path %>/user/checkUser.action",
+	            data : "name=" + name,
+	            success : function(date) {
+	            	if (date == 1) {
+	     	            document.getElementById("checkUN").innerHTML = "<b style='color: red'>用户名已存在</b>";
+	     	        } else if (date == 2) {
+	     	            document.getElementById("checkUN").innerHTML = "<b style='color:red'>用户名不能为空</b>";
+	     	        } else if(date == 3){
+	     	        	document.getElementById("checkUN").innerHTML = "<b style='color:red'>√该用户名可以使用</b>";
+	     	        }
+	            }
+	        });
+    	}
+	    $(document).ready(function() {
+	        $("#name").blur(function() {
+	            checkUser();
+	        });
+	    })
+	    //验证密码长度
+	    function AuthPwd() {
+            var e = $('#password').val();
+            if(e == ""){
+            	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>密码不能为空</b>";
+            }else{
+            	if (e.length < 6) {
+                	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>长度至少6位</b>";
+                } else {
+                	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>√密码格式正确</b>";
+                }
+            }
+        }
+	    //确认密码是否正确
+        function AuthPwdAgain(el) {
+        	var e = $('#password').val();
+        	var e1 = $('#cPassword').val();
+            if (e1 == ""){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>密码不能为空</b>";
+            }else if(e1.length < 6){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>长度至少6位</b>";
+            }else if(e1 != e){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>两次输入密码不一致</b>";
+            }else{
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>√确认密码正确</b>";
+            }
+        }
+    </script>
+    <div class="container login_mid">
+        <div class="pull-left" center 10px no-repeat; width:50%;"><img src="<%=path %>/images/icon_login.png"/></div>
+        <div class="pull-right" style="width:50%;">
+            <div class="login_box" style="height:240px;">
+                
+                <div style="margin-top:40px;">
+                	<form action="<%=path %>/user/regist" method="post">
+                		用  户 名：<input id="name" type="text"  name="name"><span id="checkUN"></span><br><br>
+                		密&nbsp&nbsp&nbsp&nbsp码：<input name="password" id="password" type="password" onblur="AuthPwd()"><span id="checkPassword"></span><br><br>
+                		确认密码：<input id="cPassword" name="cPassword"  type="password" onblur="AuthPwdAgain()"><span id = "confirmPassword"></span><br><br>
+                		手机号码：<input id="phoneNum"  name="phoneNum" type="text" onblur="AuthPhone($(this))"><span class="inptag"></span><br><br>
+                		昵&nbsp&nbsp&nbsp&nbsp称：<input id="nickname" name="nickname" type="text" onblur="AuthPhone($(this))"><span class="inptag"></span><br><br>
+                		<input type="submit"  value="注册"/>
+                	</form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>-->
 
-<div>
 
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2E56176B" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBwLauMvDAgLQr/WQDwKv0LkXApHdx+kIAs2vqZEFAvWb9NoGAsKL2t4DDugq00DUR6UlGdhLEKLDj2hc/E4=" />
-</div>
-        <div class="zhucewenzi">注册会员 Registered Members</div>
+
+    <script type="text/javascript">
+        //验证用户名是否存在
+	    function checkUser() {
+	        var name = $('#name').val();
+	        var s = 0;
+	        $.ajax({
+	            type : "post",
+	            url : "<%=path %>/user/checkUser.action",
+	            data : "name=" + name,
+	            success : function(date) {
+	            	if (date == 1) {
+	     	            document.getElementById("checkUN").innerHTML = "<b style='color: red'>用户名已存在</b>";
+	     	        } else if (date == 2) {
+	     	            document.getElementById("checkUN").innerHTML = "<b style='color:red'>用户名不能为空</b>";
+	     	        } else if(date == 3){
+	     	        	document.getElementById("checkUN").innerHTML = "<b style='color:red'>√该用户名可以使用</b>";
+	     	        }
+	            }
+	        });
+    	}
+	    $(document).ready(function() {
+	        $("#name").blur(function() {
+	            checkUser();
+	        });
+	    })
+	    //验证密码长度
+	    function AuthPwd() {
+            var e = $('#password').val();
+            if(e == ""){
+            	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>密码不能为空</b>";
+            }else{
+            	if (e.length < 6) {
+                	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>长度至少6位</b>";
+                } else {
+                	document.getElementById("checkPassword").innerHTML = "<b style='color:red'>√密码格式正确</b>";
+                }
+            }
+        }
+	    //确认密码是否正确
+        function AuthPwdAgain(el) {
+        	var e = $('#password').val();
+        	var e1 = $('#cPassword').val();
+            if (e1 == ""){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>密码不能为空</b>";
+            }else if(e1.length < 6){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>长度至少6位</b>";
+            }else if(e1 != e){
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>两次输入密码不一致</b>";
+            }else{
+            	document.getElementById("confirmPassword").innerHTML = "<b style='color:red'>√确认密码正确</b>";
+            }
+        }
+    </script>
+ <div class="zhucewenzi">注册会员 Registered Members</div>
         <div class="bg_k2">
             <div class="zhuce_left">
-                <table width="100%">
-                    <tr>
-                        <td width="25%" height="30" align="right" class="zczhanghao">手 机 号：</td>
-                        <td colspan="2"><input name="tbPst" type="text" maxlength="11" id="tbPst" class="zcfl" vtype="mobile" msg="请填写正确的手机号" /></td>
-                    </tr>
-                    <tr>
-                        <td height="30" align="right" class="zczhanghao">会员昵称：</td>
-                        <td colspan="2"><input name="tbNickname" type="text" maxlength="15" id="tbNickname" class="zcfl" vtype="require" msg="请填写会员昵称" /></td>
-                    </tr>
-                    <tr>
-                        <td height="30" align="right" class="zczhanghao">真实姓名：</td>
-                        <td colspan="2"><input name="tbRealname" type="text" maxlength="5" id="tbRealname" class="zcfl" vtype="chinese" msg="请填写您的真实姓名" /></td>
-                    </tr>
-                    <tr>
-                        <td height="30" align="right" class="zczhanghao">设置密码：</td>
-                        <td colspan="2"><input name="tbPass" type="password" maxlength="20" id="tbPass" class="zcfl" vtype="require" msg="请填写登录密码" /></td>
-                    </tr>
-                    <tr>
-                        <td height="30" align="right" class="zczhanghao">确认密码：</td>
-                        <td colspan="2"><input name="tbPass2" type="password" id="tbPass2" class="zcfl" vtype="repeat" to="tbPass" msg="两次输入的密码不一致" /></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td height="40" colspan="2"></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td height="36" colspan="2"><input type="image" name="btnSubmit" id="btnSubmit" src="images/zclogin.gif" style="border-width:0px;" /></td>
-                    </tr>
-                </table>
+               <form action="<%=path %>/user/regist" method="post">
+                		用  户 名：<input id="name" type="text"  name="name"><span id="checkUN"></span><br><br>
+                		密&nbsp&nbsp&nbsp&nbsp码：<input name="password" id="password" type="password" onblur="AuthPwd()"><span id="checkPassword"></span><br><br>
+                		确认密码：<input id="cPassword" name="cPassword"  type="password" onblur="AuthPwdAgain()"><span id = "confirmPassword"></span><br><br>
+                		手机号码：<input id="phoneNum"  name="phoneNum" type="text" onblur="AuthPhone($(this))"><span class="inptag"></span><br><br>
+                		昵&nbsp&nbsp&nbsp&nbsp称：<input id="nickname" name="nickname" type="text" onblur="AuthPhone($(this))"><span class="inptag"></span><br><br>
+                		<input type="submit"  value="注册"/>
+                	</form>
             </div>
             <div class="zhuce_right">
                 <table width="75%">
@@ -153,12 +205,12 @@
                         <td height="45" class="zchy"></td>
                     </tr>
                     <tr>
-                        <td height="50" align="center"><a href="login.aspx"><img src="images/zchydl.gif" width="200" height="36" border="0" /></a></td>
+                        <td height="50" align="center"><a href="<%=path %>/login.jsp"><img src="<%=path %>/style/zchydl.gif" width="200" height="36" border="0" /></a></td>
                     </tr>
                 </table>
             </div>
         </div>
-    </form>
+    </form>    
     
 <div class="footeradmin">
     西安尚诺西饼有限公司 @ Copyright:vcake.cn 2013 陕ICP备14002893号-1
